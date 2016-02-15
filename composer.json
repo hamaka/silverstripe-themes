@@ -1,9 +1,8 @@
 {
 	"name": "hamaka/themes",
-	"type": "silverstripe-theme",
+	"type": "silverstripe-themes",
 	"description": "Custom SilverStripe Theme by Hamaka",
 	"homepage": "http://hamaka.nl",
-	"license": "BSD-3-Clause",
 	"keywords": ["silverstripe", "themes"],
 	"authors": [
 		{
@@ -18,8 +17,5 @@
 			"name": "Hamaka",
 			"homepage": "http://hamaka.nl"
 		}
-	],
-	"autoload": {
-		"classmap": ["tests/behat/"]
-	}
+	]
 }
