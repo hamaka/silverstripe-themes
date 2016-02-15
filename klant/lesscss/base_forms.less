@@ -1,0 +1,217 @@
+//********** FORMS **************************************/
+
+	form {
+		input, textarea, select {
+			font-family: @fontStack;
+			font-size: 100%;
+			color: @fontColor;
+		}
+
+		input.text, 
+		textarea, 
+		select {
+			padding: 6px 8px;
+			width: 295px;
+			background-color: #ffffff;
+			border: 1px solid @colorPrimary;
+
+			&.invalid { background: @colorFormInvalid; }
+
+			&.medium { width: 175px; }
+			&.kort { width: 100px; }
+		}
+
+		textarea {
+			margin: 0;
+			height: 150px;
+			min-height: 150px;
+			overflow: auto;
+			resize: vertical;
+		}
+
+		input.file {
+			margin-top: 2px;
+
+			&.invalid { background: @colorFormInvalid; }
+		}
+
+		.optionset.invalid{
+			li { background: @colorFormInvalid; }
+		}
+
+		select {
+			padding: 5px 5px 5px 8px;
+			width: 313px;
+		}
+
+		label { cursor: pointer; }
+
+		input.radio, input.checkbox {
+			vertical-align: middle;
+
+			+ label { vertical-align: middle; }
+		}
+
+		fieldset { margin: 18px 0; }
+
+		.FormHeading { margin: 10px 0; }
+
+		div.field {
+			clear: both;
+			margin-top: 10px;
+			.Clearfix;
+
+			&:first-child { margin-top: 0; }
+
+			&.nolabel {
+				.middleColumn { margin-left: @formNoLabelMargin; }
+
+				&.confirmedpassword/*, &.optionset, &.dropdown*/ {
+					.middleColumn {
+						margin-left: 0;
+
+						.middleColumn { margin-left: 22px; }
+					}
+				}
+			}
+
+			&.requiredField {
+				label.left {
+					&:after {
+						content: " *";
+						color: @colorFormFeedbackErr;
+					}
+				}
+			}
+
+			label:empty { display: none; }
+
+			label.left {
+				float: left;
+				padding: 8px 2px 9px 2px;
+				width: 150px;
+				line-height: 1em;
+			}
+
+			label.required, span.required, span.validation {
+                display: block;
+                margin-left: 0px;
+                margin-top: 5px;
+				font-size: 95%;
+				font-weight: normal;
+				font-style: italic;
+				color: @colorFormFeedbackErr;
+			}
+
+			.middleColumn {
+				float: left;
+				margin-left: 22px;
+				width: auto;
+
+				+ label.right {
+					float: none;
+					display: block;
+					margin-left: @formNoLabelMargin;
+					font-size: 85%;
+					font-style: italic;
+					color: @grey1;
+					text-align: left;
+					clear: both;
+				}
+			}
+		}
+
+		div.text > label.right {
+			float: left;
+			margin-left: 10px;
+			padding: 5px 0;
+			line-height: 1em;
+		}
+
+		div.optionset, 
+		div.checkboxset {
+			label.left { padding-top: 3px; }
+
+			ul.optionset {
+				.NoVisualList;
+				float: left;
+				width: 313px;
+
+				li {
+					float: left;
+					margin-left: 28px;
+					width: auto;
+					line-height: @lineHeight;
+
+					&:first-child { margin-left: 0; }
+
+					label { margin-left: 11px; }
+				}
+			}
+		}
+
+		div.checkbox {
+			margin-left: @formNoLabelMargin;
+
+			input.checkbox {}
+
+			label.right {
+				float: none;
+				margin-left: 11px;
+				text-align: left;
+			}
+		}
+
+		div.required, ul.required {
+			input.text, textarea {
+				&.invalid { background-color: @colorFormInvalid; }
+			}
+
+			&.checkbox, &.optionset {
+				&.invalid label.right, label.invalid {
+					padding: 2px 6px;
+					color: @fontColor;
+					background-color: @colorFormInvalid;
+				}
+			}
+
+			&.checkbox, &.optionset li:first-child {
+				label { position: relative; }
+			}
+		}
+
+		.validate {
+			&.invalid { background-color: @colorFormInvalid; }
+		}
+
+		.Actions {
+			margin: 13px 0 13px @formNoLabelMargin;
+			text-align: left;
+			overflow: hidden;
+
+			input.action, input.resetformaction {
+				float: left;
+				padding: 6px 8px;
+				width: auto;
+				border: 0 none;
+				overflow: visible;
+			}
+
+			input.action {
+				margin-right: 20px;
+				background-color: @colorPrimary;
+
+				&.nolabel {
+					padding: 0;
+					background-color: transparent;
+				}
+
+				&.disabled {
+					color: @grey1;
+					background-color: @grey1;
+				}
+			}
+
+			input.resetformaction { background-color: @grey1; }
+		}
+	}

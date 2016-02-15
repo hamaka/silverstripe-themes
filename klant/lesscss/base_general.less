@@ -1,0 +1,203 @@
+//********** GLOBAL STYLES ******************************/
+
+html, body {
+	height: 100%;
+}
+
+html {
+	overflow-y: auto;
+	font-size: @fontSize;
+}
+
+body {
+	font-family: @fontStack;
+	color: @fontColor;
+}
+
+::-moz-selection {
+	background-color: lighten(@colorPrimary, 10%);
+}
+
+::selection {
+	background-color: lighten(@colorPrimary, 10%);
+}
+
+.PlaceholderColor(@fontColor, 0.5); /* opacity: 0.5 is browser default */
+
+/* optimizeLegibility breaks @font-face in some installations of Chrome */
+h1, h2, h3, h4, h5, h6 {
+	text-rendering: auto;
+}
+
+h1, h2, h3, h4 {
+	font-weight: bold;
+	text-align: left;
+	line-height: 1.2em;
+}
+
+h1, h2 {
+	margin-bottom: 5px;
+}
+
+h3, h4 {
+	margin-bottom: 28px;
+}
+
+h1 {
+	font-size: @heading1Size;
+	text-transform: uppercase;
+}
+
+h2 {
+	font-size: @heading2Size;
+	font-weight: normal;
+	color: @colorPrimary;
+	text-transform: uppercase;
+}
+
+h3 {
+	font-size: @heading3Size;
+}
+
+h4 {
+	font-size: @heading4Size;
+}
+
+p {
+	margin: 10px 0;
+	line-height: @lineHeight;
+}
+
+em {
+	font-style: italic;
+}
+
+a {
+	color: #e2001a;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+	&:hover, &:visited, &:active {
+		color: #e2001a;
+	}
+
+	img {
+		vertical-align: bottom;
+	}
+}
+
+a:focus {
+	outline: 0;
+}
+
+figure img {
+	vertical-align: bottom;
+}
+
+img {
+	border: 0;
+}
+
+b {
+	font-weight: bold;
+}
+
+address {
+	font-style: normal;
+}
+
+nav ul {
+	.NoVisualList;
+}
+
+.debug {
+	display: none;
+	position: fixed;
+	right: 0;
+	top: 12px;
+	background-color: #000;
+	color: #ffffff;
+	padding: 3px 5px;
+	font-size: 10px;
+	z-index: 1;
+
+	&.on {
+		display: block;
+	}
+
+	.px:before {
+		content: 'full';
+	}
+}
+
+//********** STANDAARD COMPONENTEN ****************************************/
+
+// zoveel mogelijk dingen benoemen op functionaliteit en niet op uiterlijk
+// proberen zo min mogelijk selectors te nesten.. normaal niet meer dan 2 niveaus tenzij je een hele specifieke uitzondering definieert
+// class namen met dezelfde opbouw gebruiken die steeds specifiekere use case functionaliteit definieert bovenop algemenere classes
+// bijvoorbeeld:
+
+.btn {
+	cursor: pointer;
+	.Shadow(2px, 2px);
+
+	&:hover {
+		.NoShadow();
+	}
+}
+
+.btn-round {
+	.RoundedCorners(8px);
+}
+
+// functionaliteit benoemen, niet uitzonderingen
+.btn-call-to-action {
+	background-color: @brown1; // kleuren die heel af en toe worden gebruikt zijn gewoon via een variabele die de naam van de kleur draagt gelinkt. Zo is het makkelijk om die kleur bruin even een tandje bij te stellen.
+	color: @colorBackgroundNav; // waar kleuren vaker worden gebruikt zoveel mogelijk variabelen definieren die beginnen met @color en functionele beschrijvingen geven zoals @colorError
+}
+
+// nu kunnen we het dus bijv zo gebruiken: <div class='btn btn-round btn-call-to-action'>Label</div>
+
+// html elementen in css gebruiken is een no-no want we willen die button stijlen bijv ook toe kunnen passen op buttons, spans etc
+// misschien niet tijdens de eerste designfase, maar als later de vraag komt 'kun je dat ook even er uit laten zien zoals de rest van de knopjes'
+// dan is dat met bovenstaande aanpak heel makkelijk
+
+// doordat de classes hierboven op het hoogste niveau staan zijn ze zeer makkelijk te overriden waar het nodig is
+.HolderPage {
+	.btn-round {
+		.RoundedCorners(10px);
+	}
+}
+
+/**
+
+Als mediaqueries gebruikt dan graag alleen in responsive.less of daar geinclude files met namen als responsive_componentnaam.less
+Als je in je mediaquery de volgende regels zet is het debuggen makkelijker omdat we dan het gebruikte breakpoint in beeld kunnen zien
+
+// START NAVIGATIE 1000
+@media only screen and (max-width: 980px) {
+	.debug .px:before {
+		content: '1000'; // 1000 is dan het aantal pixels van de media query
+	}
+}
+// EIND NAVIGATIE 1000
+
+**/
+
+// Responsive videe. In de page.js worden youtube embed automatisch gewrapped
+.videoContainer {
+	position: relative;
+	padding-bottom: 56.25%;
+	height: 0;
+	overflow: hidden;
+	.videoItem {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+	}
+}

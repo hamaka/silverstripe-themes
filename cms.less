@@ -1,0 +1,413 @@
+@import "klant/lesscss/variables.less";
+
+@grey1: #eee;
+@grey2: #e8e8e8;
+@grey3: #d9d9d9;
+@grey4: #c0c0c2;
+@white: #ffffff;
+@transparentWhite: rgba(255, 255, 255, 0.24);
+@black: #1f1f1f;
+@green1: #ffffff;
+@primaryColor: #eb3c32;
+@secondaryColor: #00AFCD;
+@thirdColor: #ffefb8;
+
+@notice: @secondaryColor;
+@error: @primaryColor;
+
+@colorConstructive: #1F9433;
+@colorSecondaryDark: #004F5D;
+@colorButton: @grey3;
+@colorButtonHover: @grey2;
+@colorGridTableHead: #79A0A6;
+@colorWidget: @grey3;
+
+@colorTab: @grey1;
+@colorTabBorder: @grey3;
+@colorHoverTab: @grey2;
+@colorActiveTab: @white;
+@colorActiveTabBorder: @grey4;
+@colorUploadFieldDragZone: @grey2;
+
+.cms-menu {
+	.Gradient(top, @grey1 10%, @colorSecondaryDark);
+	.NoShadow();
+}
+
+.cms-content-tools {
+	background: @grey1;
+	.NoShadow();
+	border: none;
+	.cms-panel-toggle {
+		a span {
+			color: @black !important;
+		}
+		&.south {
+			.NoShadow() !important;
+			border: none !important;
+		}
+	}
+}
+
+.cms-logo-header {
+	background: @transparentWhite;
+	span {
+		color: @black;
+		padding-left: 29px;
+	}
+
+}
+
+.cms-logo {
+	border: none;
+	span {
+		padding-left: 0;
+		font-weight: normal;
+		font-size: 1.2em;
+	}
+}
+
+.cms-login-status .logout-link {
+	-webkit-filter: invert(1);
+	filter: invert(1);
+}
+
+.cms-menu-list li {
+	a {
+		background: @transparentWhite;
+		border: none;
+		.NoTextShadow();
+		&:hover, &:focus {
+			border: none;
+			background: transparent;
+			.NoTextShadow();
+		}
+	}
+	&.current a {
+		.NoTextShadow();
+		border: none;
+		background: @secondaryColor;
+		.icon {
+			-webkit-filter: invert(1);
+			filter: invert(1);
+			.Opacity(1, 100%)
+		}
+	}
+}
+
+.cms-content-header {
+	h2 {
+		font-weight: normal;
+	}
+	&.north {
+		background: @grey2;
+		.Gradient(left, @transparentWhite 10%, @grey2);
+	}
+}
+
+.cms {
+	a {
+		color: @secondaryColor;
+	}
+	.cms-content-fields {
+		background: @white;
+	}
+	.ss-ui-button {
+		border: none;
+		background: @colorButton;
+		.NoRoundedCorners();
+		.NoTextShadow();
+		&:hover, &:focus {
+			background: @colorButtonHover;
+			outline: none;
+			.NoShadow();
+			.NoRoundedCorners();
+		}
+		&:active, &:focus {
+			.NoShadow();
+			border: none;
+		}
+		&.ss-ui-action-constructive {
+			background: @colorConstructive;
+			&:hover {
+				background: lighten(@colorConstructive, 5%);
+				.NoShadow();
+			}
+			.btn-icon-accept {
+				-webkit-filter: invert(1);
+				filter: invert(1);
+			}
+			.btn-icon-drive-upload {
+				-webkit-filter: invert(0);
+				filter: invert(0);
+			}
+		}
+		.btn-icon-drive-upload {
+			-webkit-filter: invert(1);
+			filter: invert(1);
+		}
+	}
+	.action.ui-widget.gridfield-better-buttons-delete {
+		background: @error;
+		border: none;
+		.NoShadow();
+		&:hover, &:focus {
+			background: lighten(@error, 5%);
+			border: none;
+			outline: none;
+
+		}
+	}
+	table.ss-gridfield-table {
+		tr {
+			&.odd, &:first-child {
+				&:hover {
+					background: lighten(@colorGridTableHead, 35%);
+				}
+			}
+			&.even:hover {
+				background: lighten(@colorGridTableHead, 33%);
+			}
+			th.main, td.bottom-all, th button.ss-gridfield-sort {
+				background: @grey2;
+				border-color: darken(@grey2, 2%);
+				.NoRoundedCorners();
+				.NoTextShadow() !important;
+				color: @black !important;
+				.datagrid-pagination .pagination-page-number {
+					.NoTextShadow() !important;
+					color: @black !important;
+				}
+				span {
+					.NoTextShadow();
+				}
+			}
+			th button.ss-gridfield-sort, .pagination-records-number {
+				color: @black !important;
+				.NoTextShadow();
+				&:hover, &:focus {
+					.NoTextShadow();
+					color: lighten(@black, 40%) !important;
+				}
+			}
+		}
+		thead tr {
+			&:first-child, &:last-child {
+				th:first-child, th:last-child {
+					.NoRoundedCorners();
+				}
+			}
+			&.title th {
+				background: @colorGridTableHead;
+				border: none;
+				.NoTextShadow();
+				color: @white;
+				h1, h2, h3 {
+					color: @white;
+					.NoTextShadow() !important;
+				}
+				.pagination-records-number {
+					color: @white !important;
+					.NoTextShadow();
+					&:hover, &:focus {
+						.NoTextShadow();
+						color: lighten(@white, 40%) !important;
+					}
+				}
+			}
+		}
+	}
+	.ss-uploadfield {
+		.middleColumn {
+			.NoRoundedCorners();
+			background: none;
+		}
+		.ss-uploadfield-item .ss-uploadfield-item-preview.ss-uploadfield-dropzone {
+			.NoRoundedCorners();
+			.NoShadow();
+			background: @colorUploadFieldDragZone;
+		}
+	}
+
+	.Widget {
+		h1, h2, h3, h4 {
+			.NoTextShadow() !important;
+		}
+		.NoShadow();
+		.NoRoundedCorners();
+		background: @colorWidget !important;
+		border: none;
+		.widgetDescription, .widgetFields {
+			background: @white !important;
+			.NoRoundedCorners() !important;
+		}
+	}
+	.message {
+		.NoRoundedCorners() !important;
+		&.notice {
+			border-color: @notice;
+		}
+		&.error {
+			border-color: @error;
+		}
+	}
+}
+
+.ss-toggle .ui-accordion-header {
+	&.ui-state-default {
+		background: none;
+		.NoRoundedCorners();
+		.NoShadow();
+		.NoTextShadow();
+	}
+}
+
+.cms-panel .cms-panel-toggle {
+	a span {
+		color: @white;
+	}
+	&.south {
+		.NoShadow();
+		border: none;
+	}
+}
+
+.tree-holder, .cms-tree {
+	&.jstree {
+		a, a:link {
+			padding-top: 5px !important;
+			padding-bottom: 5px !important;
+			color: @black;
+			.NoRoundedCorners();
+			.NoTextShadow();
+			&.jstree-clicked, &:hover {
+				background: @grey2;
+				.NoTextShadow();
+			}
+		}
+	}
+}
+
+.ui-tabs .ui-tabs-nav.cms-tabset-nav-primary {
+	.ui-state-default {
+		&:not(:last-child) {
+			border-right: none;
+		}
+		&:first-child {
+			border-left: none;
+		}
+	}
+
+}
+
+.ui-tabs.cms-tabset-primary .ui-tabs-nav, .ui-tabs .ui-tabs-nav.cms-tabset-nav-primary, .ui-tabs .cms-content-header-tabs .ui-tabs-nav, .ui-tabs .ui-tabs-nav {
+	.ui-state-default {
+		background: @colorTab;
+		.NoRoundedCorners();
+		border-color: @colorTabBorder;
+		&:hover {
+			background: @colorHoverTab;
+		}
+	}
+	.ui-state-active {
+		background: @colorActiveTab;
+		border-color: @colorActiveTabBorder;
+		&:hover {
+			background: @colorActiveTab;
+		}
+	}
+	a:focus {
+		outline: none;
+	}
+
+	li {
+		&.ui-tabs-active {
+
+		}
+		a:focus {
+			outline: none;
+		}
+	}
+}
+
+.ui-tabs {
+	.ui-tabs-panel {
+		background: @colorActiveTab;
+	}
+}
+
+.ui-dialog {
+	.NoRoundedCorners();
+	border: none !important;
+}
+
+*, .cms-subsites {
+	.field {
+		input.text, textarea, .TreeDropdownField {
+			.NoRoundedCorners();
+		}
+		.chzn-container-single {
+			.chzn-single {
+				.NoRoundedCorners();
+				background: @white;
+			}
+			.chzn-drop {
+				.NoRoundedCorners();
+				background: @white;
+				color: @black1;
+			}
+			.chzn-results {
+				padding: 0;
+				.highlighted {
+					background: @secondaryColor;
+				}
+			}
+		}
+		&:last-child {
+			border-bottom: 1px solid #d0d3d5;
+		}
+		&.preview-mode-selector, .preview-selector {
+			border: none;
+			a.chzn-single, a.chzn-single.chzn-single-with-drop {
+				.NoRoundedCorners();
+				&:focus {
+					outline: none;
+				}
+			}
+		}
+	}
+}
+
+.cms-subsites .chzn-container-single .chzn-single div b {
+	-webkit-filter: invert(1);
+	filter: invert(1);
+}
+
+.cms-content-batchactions {
+	.view-mode-batchactions-wrapper {
+		background: @white;
+		.NoRoundedCorners() !important;
+	}
+	.chzn-container-single {
+		.chzn-single {
+			background: @white;
+			.NoRoundedCorners();
+			&:hover, &:focus {
+				background: @white;
+				outline: none;
+				.NoShadow();
+			}
+		}
+	}
+}
+
+fieldset.field {
+	padding-bottom: 0;
+}
+
+#PageType ul li:hover, #PageType ul li.selected {
+	background: lighten(@colorGridTableHead, 35%);
+}
+
+
+

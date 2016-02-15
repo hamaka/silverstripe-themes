@@ -1,0 +1,774 @@
+body {
+  width: 100%;
+  *zoom: 1;
+}
+body:before,
+body:after {
+  content: "";
+  display: table;
+}
+body:after {
+  clear: both;
+}
+/* === Grid =============================== */
+/*@total-width: 100%;*/
+/* === Fonts =============================== */
+/*@bitterStack: Bitter, @fontStack;*/
+/* === Miscellaneous variables ============= */
+/* === Mixin default parameters ============ */
+/* #545454 */
+/* === Helper classes ====================== */
+/* Useful for adding the clearfix to elements which are generated */
+/* In case semantic.gs is being used, this can cancel out the styles of a column */
+/* Fancy Form */
+/* Useful for adding the clearfix to elements which are generated */
+/* === CSS3 vendor-specific ================ */
+/* === Site-specific ======================= */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  /*	*behavior: url('mysite/javascript/boxsizing.htc');	/* The star makes sure only IE7 and below match this rule */
+}
+html,
+body {
+  height: 100%;
+}
+html {
+  overflow-y: auto;
+  font-size: 12px;
+}
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  color: #111111;
+}
+::-moz-selection {
+  background-color: #656565;
+}
+::selection {
+  background-color: #656565;
+}
+::-webkit-input-placeholder {
+  color: #111111;
+  opacity: 0.5;
+}
+:-moz-placeholder {
+  color: #111111;
+  opacity: 0.5;
+}
+/* Firefox 18- */
+::-moz-placeholder {
+  color: #111111;
+  opacity: 0.5;
+}
+/* Firefox 19+ */
+:-ms-input-placeholder {
+  color: #111111;
+  opacity: 0.5;
+}
+/* opacity: 0.5 is browser default */
+/* optimizeLegibility breaks @font-face in some installations of Chrome */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-rendering: auto;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-weight: bold;
+  text-align: left;
+  line-height: 1.2em;
+}
+h1,
+h2 {
+  margin-bottom: 5px;
+}
+h3,
+h4 {
+  margin-bottom: 28px;
+}
+h1 {
+  font-size: 2.19rem;
+  text-transform: uppercase;
+}
+h2 {
+  font-size: 1.8rem;
+  font-weight: normal;
+  color: #4b4b4b;
+  text-transform: uppercase;
+}
+h3 {
+  font-size: 1.6rem;
+}
+h4 {
+  font-size: 1.53rem;
+}
+p {
+  margin: 10px 0;
+  line-height: 1.5em;
+}
+em {
+  font-style: italic;
+}
+a {
+  color: #e2001a;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:hover,
+a:visited,
+a:active {
+  color: #e2001a;
+}
+a img {
+  vertical-align: bottom;
+}
+a:focus {
+  outline: 0;
+}
+figure img {
+  vertical-align: bottom;
+}
+img {
+  border: 0;
+}
+b {
+  font-weight: bold;
+}
+address {
+  font-style: normal;
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0;
+}
+.debug {
+  display: none;
+  position: fixed;
+  right: 0;
+  top: 12px;
+  background-color: #000;
+  color: #ffffff;
+  padding: 3px 5px;
+  font-size: 10px;
+  z-index: 1;
+}
+.debug.on {
+  display: block;
+}
+.debug .px:before {
+  content: 'full';
+}
+.btn {
+  cursor: pointer;
+  -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.67);
+  -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.67);
+  -o-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.67);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.67);
+  behavior: url('mysite/javascript/PIE.htc');
+}
+.btn:hover {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+}
+.btn-round {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+  border-radius: 8px;
+  behavior: url('mysite/javascript/PIE.htc');
+}
+.btn-call-to-action {
+  background-color: #8c8244;
+  color: #ffffff;
+}
+.HolderPage .btn-round {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  behavior: url('mysite/javascript/PIE.htc');
+}
+/**
+
+Als mediaqueries gebruikt dan graag alleen in responsive.less of daar geinclude files met namen als responsive_componentnaam.less
+Als je in je mediaquery de volgende regels zet is het debuggen makkelijker omdat we dan het gebruikte breakpoint in beeld kunnen zien
+
+// START NAVIGATIE 1000
+@media only screen and (max-width: 980px) {
+	.debug .px:before {
+		content: '1000'; // 1000 is dan het aantal pixels van de media query
+	}
+}
+// EIND NAVIGATIE 1000
+
+**/
+.videoContainer {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+.videoContainer .videoItem {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+#container {
+  position: relative;
+  margin: 0 auto 25px auto;
+  padding: 0;
+  width: 960px;
+  height: auto;
+}
+form input,
+form textarea,
+form select {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 100%;
+  color: #111111;
+}
+form input.text,
+form textarea,
+form select {
+  padding: 6px 8px;
+  width: 295px;
+  background-color: #ffffff;
+  border: 1px solid #4b4b4b;
+}
+form input.text.invalid,
+form textarea.invalid,
+form select.invalid {
+  background: #f09999;
+}
+form input.text.medium,
+form textarea.medium,
+form select.medium {
+  width: 175px;
+}
+form input.text.kort,
+form textarea.kort,
+form select.kort {
+  width: 100px;
+}
+form textarea {
+  margin: 0;
+  height: 150px;
+  min-height: 150px;
+  overflow: auto;
+  resize: vertical;
+}
+form input.file {
+  margin-top: 2px;
+}
+form input.file.invalid {
+  background: #f09999;
+}
+form .optionset.invalid li {
+  background: #f09999;
+}
+form select {
+  padding: 5px 5px 5px 8px;
+  width: 313px;
+}
+form label {
+  cursor: pointer;
+}
+form input.radio,
+form input.checkbox {
+  vertical-align: middle;
+}
+form input.radio + label,
+form input.checkbox + label {
+  vertical-align: middle;
+}
+form fieldset {
+  margin: 18px 0;
+}
+form .FormHeading {
+  margin: 10px 0;
+}
+form div.field {
+  clear: both;
+  margin-top: 10px;
+  zoom: 1;
+}
+form div.field:before,
+form div.field:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+form div.field:after {
+  clear: both;
+}
+form div.field:first-child {
+  margin-top: 0;
+}
+form div.field.nolabel .middleColumn {
+  margin-left: 176px;
+}
+form div.field.nolabel.confirmedpassword .middleColumn {
+  margin-left: 0;
+}
+form div.field.nolabel.confirmedpassword .middleColumn .middleColumn {
+  margin-left: 22px;
+}
+form div.field.requiredField label.left:after {
+  content: " *";
+  color: #f00909;
+}
+form div.field label:empty {
+  display: none;
+}
+form div.field label.left {
+  float: left;
+  padding: 8px 2px 9px 2px;
+  width: 150px;
+  line-height: 1em;
+}
+form div.field label.required,
+form div.field span.required,
+form div.field span.validation {
+  display: block;
+  margin-left: 0px;
+  margin-top: 5px;
+  font-size: 95%;
+  font-weight: normal;
+  font-style: italic;
+  color: #f00909;
+}
+form div.field .middleColumn {
+  float: left;
+  margin-left: 22px;
+  width: auto;
+}
+form div.field .middleColumn + label.right {
+  float: none;
+  display: block;
+  margin-left: 176px;
+  font-size: 85%;
+  font-style: italic;
+  color: #4b4b4b;
+  text-align: left;
+  clear: both;
+}
+form div.text > label.right {
+  float: left;
+  margin-left: 10px;
+  padding: 5px 0;
+  line-height: 1em;
+}
+form div.optionset label.left,
+form div.checkboxset label.left {
+  padding-top: 3px;
+}
+form div.optionset ul.optionset,
+form div.checkboxset ul.optionset {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0;
+  float: left;
+  width: 313px;
+}
+form div.optionset ul.optionset li,
+form div.checkboxset ul.optionset li {
+  float: left;
+  margin-left: 28px;
+  width: auto;
+  line-height: 1.5em;
+}
+form div.optionset ul.optionset li:first-child,
+form div.checkboxset ul.optionset li:first-child {
+  margin-left: 0;
+}
+form div.optionset ul.optionset li label,
+form div.checkboxset ul.optionset li label {
+  margin-left: 11px;
+}
+form div.checkbox {
+  margin-left: 176px;
+}
+form div.checkbox label.right {
+  float: none;
+  margin-left: 11px;
+  text-align: left;
+}
+form div.required input.text.invalid,
+form ul.required input.text.invalid,
+form div.required textarea.invalid,
+form ul.required textarea.invalid {
+  background-color: #f09999;
+}
+form div.required.checkbox.invalid label.right,
+form ul.required.checkbox.invalid label.right,
+form div.required.optionset.invalid label.right,
+form ul.required.optionset.invalid label.right,
+form div.required.checkbox label.invalid,
+form ul.required.checkbox label.invalid,
+form div.required.optionset label.invalid,
+form ul.required.optionset label.invalid {
+  padding: 2px 6px;
+  color: #111111;
+  background-color: #f09999;
+}
+form div.required.checkbox label,
+form ul.required.checkbox label,
+form div.required.optionset li:first-child label,
+form ul.required.optionset li:first-child label {
+  position: relative;
+}
+form .validate.invalid {
+  background-color: #f09999;
+}
+form .Actions {
+  margin: 13px 0 13px 176px;
+  text-align: left;
+  overflow: hidden;
+}
+form .Actions input.action,
+form .Actions input.resetformaction {
+  float: left;
+  padding: 6px 8px;
+  width: auto;
+  border: 0 none;
+  overflow: visible;
+}
+form .Actions input.action {
+  margin-right: 20px;
+  background-color: #4b4b4b;
+}
+form .Actions input.action.nolabel {
+  padding: 0;
+  background-color: transparent;
+}
+form .Actions input.action.disabled {
+  color: #4b4b4b;
+  background-color: #4b4b4b;
+}
+form .Actions input.resetformaction {
+  background-color: #4b4b4b;
+}
+.SecurityPage {
+  text-align: center;
+}
+.security-header {
+  text-align: center;
+}
+#MemberLoginFormExt_LoginForm,
+#MemberLoginFormExt_LostPasswordForm {
+  margin: 0 auto;
+  padding: 10px;
+  max-width: 500px;
+  background-color: transparent;
+  border: 0;
+}
+#MemberLoginFormExt_LoginForm input.text,
+#MemberLoginFormExt_LostPasswordForm input.text,
+#MemberLoginFormExt_LoginForm input.email,
+#MemberLoginFormExt_LostPasswordForm input.email,
+#MemberLoginFormExt_LoginForm textarea,
+#MemberLoginFormExt_LostPasswordForm textarea,
+#MemberLoginFormExt_LoginForm select,
+#MemberLoginFormExt_LostPasswordForm select {
+  margin: 0 5px 10px 0;
+  padding: 8px 13px 9px 13px;
+  width: 100%;
+  background-color: #ececec;
+  border: 2px solid #c4c4c4;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  /*	*behavior: url('mysite/javascript/boxsizing.htc');	/* The star makes sure only IE7 and below match this rule */
+}
+#MemberLoginFormExt_LoginForm input.text:focus,
+#MemberLoginFormExt_LostPasswordForm input.text:focus,
+#MemberLoginFormExt_LoginForm input.email:focus,
+#MemberLoginFormExt_LostPasswordForm input.email:focus,
+#MemberLoginFormExt_LoginForm textarea:focus,
+#MemberLoginFormExt_LostPasswordForm textarea:focus,
+#MemberLoginFormExt_LoginForm select:focus,
+#MemberLoginFormExt_LostPasswordForm select:focus {
+  outline-color: #484848;
+}
+#MemberLoginFormExt_LoginForm .field.text,
+#MemberLoginFormExt_LostPasswordForm .field.text,
+#MemberLoginFormExt_LoginForm .field.textarea,
+#MemberLoginFormExt_LostPasswordForm .field.textarea {
+  position: relative;
+  margin-bottom: 20px;
+}
+#MemberLoginFormExt_LoginForm .field.text .middleColumn,
+#MemberLoginFormExt_LostPasswordForm .field.text .middleColumn,
+#MemberLoginFormExt_LoginForm .field.textarea .middleColumn,
+#MemberLoginFormExt_LostPasswordForm .field.textarea .middleColumn {
+  float: none;
+  margin-left: 0;
+}
+#MemberLoginFormExt_LoginForm .field.text label,
+#MemberLoginFormExt_LostPasswordForm .field.text label,
+#MemberLoginFormExt_LoginForm .field.textarea label,
+#MemberLoginFormExt_LostPasswordForm .field.textarea label {
+  position: absolute;
+  top: -10px;
+  left: 13px;
+  color: #aaaaaa;
+  transition: all 0.1s linear;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+  /* IE8 */
+  font-size: 100%;
+  font-weight: normal;
+}
+#MemberLoginFormExt_LoginForm .field.text label.show,
+#MemberLoginFormExt_LostPasswordForm .field.text label.show,
+#MemberLoginFormExt_LoginForm .field.textarea label.show,
+#MemberLoginFormExt_LostPasswordForm .field.textarea label.show {
+  top: -25px;
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+  /* IE8 */
+}
+#MemberLoginFormExt_LoginForm textarea,
+#MemberLoginFormExt_LostPasswordForm textarea {
+  height: 140px;
+}
+#MemberLoginFormExt_LoginForm fieldset,
+#MemberLoginFormExt_LostPasswordForm fieldset {
+  margin: 30px 0;
+}
+#MemberLoginFormExt_LoginForm div.field.nolabel div.middleColumn,
+#MemberLoginFormExt_LostPasswordForm div.field.nolabel div.middleColumn {
+  margin-left: 190px;
+}
+#MemberLoginFormExt_LoginForm div.field.nolabel.confirmedpassword div.middleColumn,
+#MemberLoginFormExt_LostPasswordForm div.field.nolabel.confirmedpassword div.middleColumn {
+  margin-left: 0;
+}
+#MemberLoginFormExt_LoginForm div.field.nolabel.confirmedpassword div.middleColumn div.middleColumn,
+#MemberLoginFormExt_LostPasswordForm div.field.nolabel.confirmedpassword div.middleColumn div.middleColumn {
+  margin-left: 25px;
+}
+#MemberLoginFormExt_LoginForm div.Actions input.action,
+#MemberLoginFormExt_LostPasswordForm div.Actions input.action {
+  padding: 10px 30px;
+  font-size: 13px;
+  background-color: #4b4b4b;
+  border: 2px solid #c4c4c4;
+  border-top: 0 none;
+  border-left: 0 none;
+}
+#MemberLoginFormExt_LoginForm div.field label.left,
+#MemberLoginFormExt_LostPasswordForm div.field label.left {
+  text-align: left;
+}
+#MemberLoginFormExt_LoginForm #Remember,
+#MemberLoginFormExt_LostPasswordForm #Remember {
+  margin-left: 0;
+}
+#MemberLoginFormExt_LoginForm #Remember .checkbox,
+#MemberLoginFormExt_LostPasswordForm #Remember .checkbox,
+#MemberLoginFormExt_LoginForm #Remember .right,
+#MemberLoginFormExt_LostPasswordForm #Remember .right {
+  float: left;
+}
+#MemberLoginFormExt_LoginForm #Remember label,
+#MemberLoginFormExt_LostPasswordForm #Remember label {
+  margin-left: 7px;
+}
+#MemberLoginFormExt_LoginForm div.Actions,
+#MemberLoginFormExt_LostPasswordForm div.Actions {
+  float: none;
+  margin-left: 0;
+}
+#MemberLoginFormExt_LoginForm div.Actions input.action,
+#MemberLoginFormExt_LostPasswordForm div.Actions input.action {
+  float: left;
+  padding: 5px 25px;
+  color: #fff;
+  font-weight: bold;
+  border: 1px solid #1f9433;
+  /* @direction can be top or left */
+  background: #93be42;
+  /* Fallback for non-CSS3 browsers */
+  background: -webkit-gradient(linear, top, from(#93be42), to(#1f9433));
+  /* Old Webkit */
+  background: -webkit-linear-gradient(top, #93be42, #1f9433);
+  /* New Webkit */
+  background: -moz-linear-gradient(top, #93be42, #1f9433);
+  /* Gecko */
+  background: -ms-linear-gradient(top, #93be42, #1f9433);
+  /* IE10 */
+  background: -o-linear-gradient(top, #93be42, #1f9433);
+  /* Opera 11.10+ */
+  background: linear-gradient(top, #93be42, #1f9433);
+  /* Future CSS3 browsers */
+  -pie-background: linear-gradient(top, #93be42, #1f9433);
+  /* PIE */
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  behavior: url('mysite/javascript/PIE.htc');
+}
+.security-branding {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+.security-branding a {
+  display: inline-block;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=50);
+  /* IE8 */
+  -webkit-transition: opacity 0.3s ease-out 0s;
+  -moz-transition: opacity 0.3s ease-out 0s;
+  -o-transition: opacity 0.3s ease-out 0s;
+  -ms-transition: opacity 0.3s ease-out 0s;
+  transition: opacity 0.3s ease-out 0s;
+}
+.security-branding a:hover {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+  /* IE8 */
+}
+table.notable tr td {
+  border: 0 none;
+}
+table.notable tr td h1,
+table.notable tr td h2,
+table.notable tr td h3 {
+  margin: 0;
+}
+table.notable tr td {
+  border: 0 none;
+}
+table.notable tr td h1,
+table.notable tr td h2,
+table.notable tr td h3 {
+  margin: 0;
+}
+.clear {
+  clear: both;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.no-overflow {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.underline {
+  text-decoration: underline;
+}
+.noMarginTop,
+.typography .noMarginTop {
+  margin-top: 0;
+}
+.feedback,
+#content .feedback,
+.message {
+  font-size: 100%;
+  font-weight: bold;
+  font-style: italic;
+}
+.feedback.bad,
+#content .feedback.bad,
+.message.bad,
+.feedback.invalid,
+#content .feedback.invalid,
+.message.invalid {
+  color: #f00909;
+}
+.feedback.good,
+#content .feedback.good,
+.message.good,
+.feedback.valid,
+#content .feedback.valid,
+.message.valid {
+  color: #4ab848;
+}
+.debug-environment {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(42, 163, 105, 0.72);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  behavior: url('mysite/javascript/PIE.htc');
+  padding: 0px 6px;
+  color: #FFFFFF;
+  z-index: 1000;
+}
+.debug-environment span {
+  display: block;
+}
+.debug-hostindicator {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(42, 163, 105, 0.72);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  behavior: url('mysite/javascript/PIE.htc');
+  padding: 0px 6px;
+  color: #FFFFFF;
+  z-index: 1000;
+}
+.debug-hostindicator.loc {
+  background-color: rgba(19, 124, 163, 0.71);
+}
+.debug-hostindicator.accept {
+  background-color: rgba(255, 164, 17, 0.71);
+}
+.debug-hostindicator span {
+  display: block;
+}
+.typography h1,
+.typography h2,
+.typography h3,
+.typography h4 {
+  line-height: 1.2em;
+}
+.typography p {
+  line-height: 1.5em;
+}
+/* This is not meant for responsiveness, use a separate file for that */
+@media only screen and (max-width: 767px) {
+  /* Open all sitemap tree nodes by default to prevent usability difficulty on mobile devices */
+  #sitemap li a {
+    font-size: 115%;
+  }
+  #sitemap li ul {
+    display: block !important;
+  }
+}

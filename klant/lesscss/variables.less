@@ -1,0 +1,429 @@
+//********** LESS VARIABLES ********************************************/
+
+	@imgDir: '../../images';
+	@fontDir: '../../fonts';
+
+/* === Grid =============================== */
+
+	@columns: 12;
+	@column-width: 60;
+	@gutter-width: 20;
+	/*@total-width: 100%;*/
+
+
+	//* === Kleuren abstract (dus @blue1 en niet @linkkleur ============================== */
+
+	@grey1: #4b4b4b;
+	@grey2: #7e7e7e;
+	@grey3: #e3e4e4;
+	@grey4: #f0f0f0;
+	@grey5: #cecece;
+	@blue1: #2e4b93;
+	@blue2: #c1c4d3;
+	@brown1: #8c8244;
+	@brown2: #cecaaf;
+	@white: #FFFFFF;
+	@black1: #454545;
+
+	@pink1: #f09999;
+	@red1: #f00909;
+	@green1: #4AB848;
+
+//* === Kleuren toegepast (dus @linkkleur en niet @blue1 ============================== */
+
+	@warning: @pink1;
+	@error: @red1;
+	@succes: @green1;
+
+	@colorPrimary: @grey1;
+	@fontColor: @black1;
+	@colorFont: @fontColor;
+
+	@colorLinkNormal: @colorPrimary;
+	@colorLinkVisited: @colorPrimary;
+	@colorLinkActive: @colorPrimary;
+	@colorLinkHover: @colorPrimary;
+
+	@colorLinkMainNavNormal: @white;
+	@colorLinkMainNavVisited: @white;
+	@colorLinkMainNavActive: @white;
+	@colorLinkMainNavHover: @white;
+
+	@colorFormInvalid: @warning;
+	@colorFormFeedbackErr: @error;
+	@colorFormFeedbackSuc: @succes;
+
+	@colorBackgroundNav: @white;
+
+	/* === Fonts =============================== */
+
+	@fontStack: Helvetica, Arial, sans-serif;
+	@fontSize: 12px;
+	@fontColor: #111111;
+	@lineHeight: 1.5em;
+
+	/*@bitterStack: Bitter, @fontStack;*/
+
+	@heading1Size: 2.19rem;
+	@heading2Size: 1.8rem;
+	@heading3Size: 1.6rem;
+	@heading4Size: 1.53rem;
+
+	/* === Miscellaneous variables ============= */
+
+	@formNoLabelMargin: 176px;
+
+/* === Mixin default parameters ============ */
+
+	@defaultTxtShadowOffsetX: 1px;
+	@defaultTxtShadowOffsetY: 1px;
+	@defaultTxtShadowBlur: 1px;
+	@defaultTxtShadowColor: rgba(0, 0, 0, 0.2);
+
+	@defaultRadius: 6px;
+
+	@defaultShadowOffsetX: 0;
+	@defaultShadowOffsetY: 0;
+	@defaultShadowBlur: 10px;
+	@defaultShadowColor: rgba(0, 0, 0, 0.67); /* #545454 */
+
+	@defaultButBgColor: @colorPrimary;
+	@defaultButBgHover: darken(@colorPrimary, 10%);
+
+//********** LESS MIXINS ***********************************************/
+
+	/* === Helper classes ====================== */
+
+	/* Useful for adding the clearfix to elements which are generated */
+	.Clearfix() {
+		&:before, &:after {
+			content: "\0020";
+			display: block;
+			height: 0;
+			overflow: hidden;
+		}
+
+		&:after { clear: both; }
+
+		zoom: 1;
+	}
+
+	.Opacity(@decimal, @percentage) {
+		opacity: @decimal;
+		filter: ~"alpha(opacity=@{percentage})";
+		-ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{percentage})";	/* IE8 */
+	}
+
+	.AbbrText() {
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
+	.BreakWord() {
+		word-wrap: break-word;
+		-webkit-hyphens: auto;
+		-moz-hyphens: auto;
+		hyphens: auto;
+	}
+
+	.NoVisualList() {
+		list-style-type: none;
+		margin: 0;
+		padding-left: 0;
+	}
+
+	.FontFace(@fontname, @fontfile, @weight, @style) {
+		font-family: '@{fontname}';
+		src: url('@{fontDir}/@{fontfile}.eot'); /* IE9 Compat Modes */
+		src:	url('@{fontDir}/@{fontfile}.eot?#iefix') format('embedded-opentype'), /* IE6 - IE8 */
+					url('@{fontDir}/@{fontfile}.woff') format('woff'), /* Modern Browsers */
+					url('@{fontDir}/@{fontfile}.ttf') format('truetype'), /* Safari, Android, iOS */
+					url('@{fontDir}/@{fontfile}.svg#@{fontname}') format('svg'); /* Legacy iOS */
+		font-weight: @weight;
+		font-style: @style;
+	}
+
+	/* In case semantic.gs is being used, this can cancel out the styles of a column */
+	.RemoveCols() {
+		float: none;
+		margin: 0;
+		width: auto;
+	}
+
+	.RemoveSeparationStyles(@side: top) {
+		margin-@{side}: 0;
+		padding-@{side}: 0;
+		border-@{side}: 0 none;
+	}
+
+	.PlaceholderColor(@color, @opacity) {
+		::-webkit-input-placeholder { color: @color; opacity: @opacity; }
+		:-moz-placeholder { color: @color; opacity: @opacity; } /* Firefox 18- */
+		::-moz-placeholder { color: @color; opacity: @opacity; }	/* Firefox 19+ */
+		:-ms-input-placeholder { color: @color; opacity: @opacity; }
+	}
+
+	.HideText() {
+		text-indent: 100%;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+
+	/* Fancy Form */
+	/* Useful for adding the clearfix to elements which are generated */
+	.FancyForm() {
+		input.text,
+		input.email,
+		textarea,
+		select {
+			margin: 0 5px 10px 0;
+			padding: 8px 13px 9px 13px;
+			width: 100%;
+			background-color: #ececec;
+			border: 2px solid #c4c4c4;
+			.BoxSizing(border-box);
+			//height: 17px;
+
+			&:focus { outline-color: #484848; }
+		}
+
+		// Voor labels
+		.field.text, .field.textarea {
+			position: relative;
+			margin-bottom: 20px;
+
+			.middleColumn {
+				float: none;
+				margin-left: 0;
+			}
+
+			label {
+				position: absolute;
+				top: -10px;
+				left: 13px;
+				color: #aaaaaa;
+				transition: all 0.1s linear;
+				.Opacity(0, 0);
+				font-size: 100%;
+				font-weight: normal;
+
+				&.show {
+					top: -25px;
+					.Opacity(1, 100);
+				}
+			}
+		}
+
+		textarea { height: 140px; }
+		fieldset { margin: 30px 0; }
+
+		div.field {
+			&.nolabel {
+				div.middleColumn { margin-left: 190px; }
+
+				&.confirmedpassword/*, &.optionset, &.dropdown*/ {
+					div.middleColumn {
+						margin-left: 0;
+
+						div.middleColumn { margin-left: 25px; }
+					}
+				}
+			}
+		}
+
+		div.Actions {
+			input.action {
+				padding: 10px 30px;
+				font-size: 13px;
+				background-color: @colorPrimary;
+				border: 2px solid #c4c4c4;
+				border-top: 0 none;
+				border-left: 0 none;
+			}
+		}
+	}
+
+/* === CSS3 vendor-specific ================ */
+
+	.Css3Pie() {
+		behavior: url('mysite/javascript/PIE.htc');
+	}
+
+	.NoCss3Pie() {
+		behavior: none;
+	}
+
+	.RoundedCorners(@radius: @defaultRadius) {
+		-webkit-border-radius: @radius;
+		-moz-border-radius: @radius;
+		-o-border-radius: @radius;
+		border-radius: @radius;
+		.Css3Pie;
+	}
+
+	.NoRoundedCorners() {
+		-webkit-border-radius: 0;
+		-moz-border-radius: 0;
+		-o-border-radius: 0;
+		border-radius: 0;
+	}
+
+	.Shadow(@offsetX: @defaultShadowOffsetX, @offsetY: @defaultShadowOffsetY, @blur: @defaultShadowBlur, @color: @defaultShadowColor) {
+		-moz-box-shadow: @arguments;
+		-webkit-box-shadow: @arguments;
+		-o-box-shadow: @arguments;
+		box-shadow: @arguments;
+		.Css3Pie;
+	}
+
+	.ShadowInner(@offsetX: @defaultShadowOffsetX, @offsetY: @defaultShadowOffsetY, @blur: @defaultShadowBlur, @color: @defaultShadowColor) {
+		-moz-box-shadow: inset @arguments;
+		-webkit-box-shadow: inset @arguments;
+		-o-box-shadow: inset @arguments;
+		box-shadow: inset @arguments;
+		.Css3Pie;
+	}
+
+	.NoShadow() {
+		-moz-box-shadow: none;
+		-webkit-box-shadow: none;
+		-o-box-shadow: none;
+		box-shadow: none;
+	}
+
+	.Gradient(@direction, @startColor, @endColor) {
+		/* @direction can be top or left */
+		background: @startColor;	/* Fallback for non-CSS3 browsers */
+		background: -webkit-gradient(linear, @direction, from(@startColor), to(@endColor)); /* Old Webkit */
+		background: -webkit-linear-gradient(@direction, @startColor, @endColor); /* New Webkit */
+		background: -moz-linear-gradient(@direction, @startColor, @endColor); /* Gecko */
+		background: -ms-linear-gradient(@direction, @startColor, @endColor); /* IE10 */
+		background: -o-linear-gradient(@direction, @startColor, @endColor); /* Opera 11.10+ */
+		background: linear-gradient(@direction, @startColor, @endColor); /* Future CSS3 browsers */
+		-pie-background: linear-gradient(@direction, @startColor, @endColor); /* PIE */
+		.Css3Pie;
+	}
+
+	.GradientFourSteps(@direction, @startPos, @startColor, @middleTopPos, @middleTopColor, @middleBottomPos, @middleBottomColor, @endPos, @endColor) {
+		background: @startColor;	/* Fallback for non-CSS3 browsers */
+		background: -webkit-gradient(linear, @direction, color-stop(@startPos, @startColor), color-stop(@middleTopPos, @middleTopColor), color-stop(@middleBottomPos, @middleBottomColor), color-stop(@endPos, @endColor)); /* Old Webkit */
+		background: -webkit-linear-gradient(@direction, @startColor percentage(@startPos / 100), @middleTopColor percentage(@middleTopPos / 100), @middleBottomColor percentage(@middleBottomPos / 100), @endColor percentage(@endPos / 100)); /* New Webkit */
+		background: -moz-linear-gradient(@direction, @startColor percentage(@startPos / 100), @middleTopColor percentage(@middleTopPos / 100), @middleBottomColor percentage(@middleBottomPos / 100), @endColor percentage(@endPos / 100)); /* Gecko */
+		background: -ms-linear-gradient(@direction, @startColor percentage(@startPos / 100), @middleTopColor percentage(@middleTopPos / 100), @middleBottomColor percentage(@middleBottomPos / 100), @endColor percentage(@endPos / 100)); /* IE10 */
+		background: -o-linear-gradient(@direction, @startColor percentage(@startPos / 100), @middleTopColor percentage(@middleTopPos / 100), @middleBottomColor percentage(@middleBottomPos / 100), @endColor percentage(@endPos / 100)); /* Opera 11.10+ */
+		background: linear-gradient(@direction, @startColor percentage(@startPos / 100), @middleTopColor percentage(@middleTopPos / 100), @middleBottomColor percentage(@middleBottomPos / 100), @endColor percentage(@endPos / 100)); /* Future CSS3 browsers */
+		-pie-background: linear-gradient(@direction, @startColor percentage(@startPos / 100), @middleTopColor percentage(@middleTopPos / 100), @middleBottomColor percentage(@middleBottomPos / 100), @endColor percentage(@endPos / 100)); /* PIE */
+		.Css3Pie;
+	}
+
+	.NoGradient() {
+		background: none;
+		-pie-background: none;
+	}
+
+	.TextShadow(@offsetX: @defaultTxtShadowOffsetX, @offsetY: @defaultTxtShadowOffsetY, @blur: @defaultTxtShadowBlur, @color: @defaultTxtShadowColor) {
+		text-shadow: @arguments;
+
+		/* Looks ugly... */
+		/*filter: dropshadow(color=@{color}, offx=@{offsetX}, offy=@{offsetY});*/
+		.Css3Pie;
+	}
+
+	.NoTextShadow() {
+		text-shadow: none;
+		filter: -;
+	}
+
+	.Rotate(@amount) {
+		-moz-transform: rotate(@amount);
+		-webkit-transform: rotate(@amount);
+		-o-transform: rotate(@amount);
+		-ms-transform: rotate(@amount);
+		transform: rotate(@amount);
+	}
+
+	.NoRotate() {
+		-moz-transform: none;
+		-webkit-transform: none;
+		-o-transform: none;
+		-ms-transform: none;
+		transform: none;
+	}
+
+	.Transition(@property, @duration, @easing, @delay) {
+		-webkit-transition: @arguments;
+		-moz-transition: @arguments;
+		-o-transition: @arguments;
+		-ms-transition: @arguments;
+		transition: @arguments;
+	}
+
+	.BoxSizing(@type) {
+		-webkit-box-sizing: @type;
+		-moz-box-sizing: @type;
+		box-sizing: @type;
+		/*	*behavior: url('mysite/javascript/boxsizing.htc');	/* The star makes sure only IE7 and below match this rule */
+	}
+
+	.Transform(@attrs) {
+		-webkit-transform: @attrs;
+		-moz-transform: @attrs;
+		-o-transform: @attrs;
+		-ms-transform: @attrs;
+		transform: @attrs;
+	}
+
+	.FlexboxContainer(@direction: row, @wrap: nowrap, @justify: flex-start, @acontent: stretch, @aitems: stretch) {
+		display: -ms-flexbox;
+		-ms-box-orient: horizontal;
+
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: flex;
+
+		-webkit-flex-direction: @direction;
+		-moz-flex-direction: @direction;
+		-ms-flex-direction: @direction;
+		flex-direction: @direction;
+
+		-webkit-flex-wrap: @wrap;
+		-moz-flex-wrap: @wrap;
+		-ms-flex-wrap: @wrap;
+		flex-wrap: @wrap;
+
+		-webkit-justify-content: @justify;
+		-moz-justify-content: @justify;
+		-ms-justify-content: @justify;
+		justify-content: @justify;
+
+		-webkit-align-content: @acontent;
+		-moz-align-content: @acontent;
+		-ms-align-content: @acontent;
+		align-content: @acontent;
+
+		-webkit-align-items: @aitems;
+		-moz-align-items: @aitems;
+		-ms-align-items: @aitems;
+		align-items: @aitems;
+	}
+
+	.FlexboxChild(@display: 0 1 auto) {
+		-webkit-flex: @display;
+		-moz-flex: @display;
+		-ms-flex: @display;
+		flex: @display;
+	}
+
+	.FlexboxOrder(@pos) {
+		-webkit-box-ordinal-group: @pos;	/* OLD - iOS 7-, Safari 3.1-6 */
+		-moz-box-ordinal-group: @pos;			/* OLD - Firefox 19- */
+		-ms-flex-order: @pos;							/* TWEENER - IE 10 */
+		-webkit-order: @pos;							/* NEW - Chrome */
+		order: @pos;											/* NEW - Spec - Opera 12.1, Firefox 20+ */
+	}
+
+	/* === Site-specific ======================= */
+
+		

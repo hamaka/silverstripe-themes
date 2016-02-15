@@ -1,0 +1,18 @@
+/* LESS.JS VARIABLES ----------------------------------------- */
+/* === Grid =============================== */
+/*@total-width: 100%;*/
+/* === Fonts =============================== */
+/*@bitterStack: Bitter, @fontStack;*/
+/* === Miscellaneous variables ============= */
+/* === Mixin default parameters ============ */
+/* #545454 */
+/* === Helper classes ====================== */
+/* Useful for adding the clearfix to elements which are generated */
+/* In case semantic.gs is being used, this can cancel out the styles of a column */
+/* Fancy Form */
+/* Useful for adding the clearfix to elements which are generated */
+/* === CSS3 vendor-specific ================ */
+/* === Site-specific ======================= */
+/* GENERIC STYLES -------------------------------------------- */
+/*@font-face { .FontFace('Bitter', 'Bitter', normal, normal); }
+	@font-face { .FontFace('Bitter', 'Bitter-Bold', bold, normal); }*/

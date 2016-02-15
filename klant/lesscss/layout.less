@@ -1,0 +1,90 @@
+//********** IMPORTS (not included, just used for compilation ****************************/
+
+	@import "grid.less";
+	@import "variables.less";
+
+//********** GLOBAL STYLES ******************************/
+	* {
+		.BoxSizing(border-box);
+	}
+
+	@import "base_general.less";
+
+	#container {
+		position: relative;
+		margin: 0 auto 25px auto;
+		padding: 0;
+		width: 960px;
+		height: auto;
+	}
+
+//********** TOP ****************************************/
+
+	
+
+//********** MENU ***************************************/
+
+	
+
+//********** MAIN ***************************************/
+
+	
+
+//********** WIDGETS ************************************/
+
+	
+
+//********** FORMS **************************************/
+
+	@import "base_forms.less";
+
+//********** FRONTEND SECURITY PAGES ********************/
+
+	@import "base_security.less";
+
+//********** TABLE STYLING ******************************/
+
+	table {
+		&.notable {
+			tr {
+				td {
+					border: 0 none;
+
+					h1, h2, h3 { margin: 0; }
+				}
+			}
+		}
+	}
+
+//********** MISCELLANEOUS ******************************/
+
+	@import "base_misc.less";
+
+
+//********** Correcties op Typography - stijlen met line-heights willen we niet in Typography.less hebben omdat TinyMCE die dan inline plaatst. Die mogen dus hier zodat front ze wel ziet maar CMS niet ******************************/
+	.typography h1, .typography h2,
+	.typography h3, .typography h4 {
+		line-height: 1.2em;
+	}
+
+	.typography p {
+		line-height: @lineHeight;
+	}
+
+//********** IE FIXES ******************************/
+	@import "ie8.less";
+	@import "ie7.less";
+
+//********** MEDIA QUERIES ******************************/
+
+	/* This is not meant for responsiveness, use a separate file for that */
+	@media only screen and (max-width: 767px) {
+		/* Open all sitemap tree nodes by default to prevent usability difficulty on mobile devices */
+		#sitemap {
+			li {
+				a { font-size: 115%; }
+
+				ul { display: block !important; }
+			}
+		}
+	}

@@ -1,0 +1,69 @@
+
+//********** MISCELLANEOUS ******************************/
+
+	.clear {
+		clear: both;
+		height: 0;
+		font-size: 0;
+		line-height: 0;
+	}
+
+	.left { float: left; }
+	.right { float: right; }
+
+	.no-overflow {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+
+	.underline { text-decoration: underline; }
+
+	.noMarginTop, .typography .noMarginTop { margin-top: 0; }
+
+	.feedback, #content .feedback, .message {
+		font-size: 100%;
+		font-weight: bold;
+		font-style: italic;
+
+		&.bad, &.invalid { color: @colorFormFeedbackErr; }
+		&.good, &.valid { color: @colorFormFeedbackSuc; }
+	}
+
+	.debug-environment {
+		position: fixed;
+		bottom: 10px;
+		left: 10px;
+		background-color: rgba(42, 163, 105, 0.72);
+		.RoundedCorners(4px);
+		padding: 0px 6px;
+		color: #FFFFFF;
+		z-index: 1000;
+
+		span {
+			display: block;
+		}
+	}
+
+	.debug-hostindicator {
+		position: fixed;
+		bottom: 10px;
+		right: 10px;
+		background-color: rgba(42, 163, 105, 0.72);
+		.RoundedCorners(4px);
+		padding: 0px 6px;
+		color: #FFFFFF;
+		z-index: 1000;
+
+		&.loc {
+			background-color: rgba(19, 124, 163, 0.71);
+		}
+
+		&.accept {
+			background-color: rgba(255, 164, 17, 0.71);
+		}
+
+		span {
+			display: block;
+		}
+	}

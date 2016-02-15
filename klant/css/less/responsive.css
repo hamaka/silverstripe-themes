@@ -1,0 +1,34 @@
+body {
+  width: 100%;
+  *zoom: 1;
+}
+body:before,
+body:after {
+  content: "";
+  display: table;
+}
+body:after {
+  clear: both;
+}
+/* === Grid =============================== */
+/*@total-width: 100%;*/
+/* === Fonts =============================== */
+/*@bitterStack: Bitter, @fontStack;*/
+/* === Miscellaneous variables ============= */
+/* === Mixin default parameters ============ */
+/* #545454 */
+/* === Helper classes ====================== */
+/* Useful for adding the clearfix to elements which are generated */
+/* In case semantic.gs is being used, this can cancel out the styles of a column */
+/* Fancy Form */
+/* Useful for adding the clearfix to elements which are generated */
+/* === CSS3 vendor-specific ================ */
+/* === Site-specific ======================= */
+@media only screen and (max-width: 980px) {
+  .debugOn {
+    background-color: #FF0000;
+  }
+  .debug .px:before {
+    content: '1000';
+  }
+}

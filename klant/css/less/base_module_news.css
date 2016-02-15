@@ -1,0 +1,46 @@
+/********** IMPORTS (not included, just used for compilation ****************************/
+/* === Grid =============================== */
+/*@total-width: 100%;*/
+/* === Fonts =============================== */
+/*@bitterStack: Bitter, @fontStack;*/
+/* === Miscellaneous variables ============= */
+/* === Mixin default parameters ============ */
+/* #545454 */
+/* === Helper classes ====================== */
+/* Useful for adding the clearfix to elements which are generated */
+/* In case semantic.gs is being used, this can cancel out the styles of a column */
+/* Fancy Form */
+/* Useful for adding the clearfix to elements which are generated */
+/* === CSS3 vendor-specific ================ */
+/* === Site-specific ======================= */
+/********** NIEUWS ******************************/
+.NewsHolder .typography h3,
+.NewsHolderPage .typography h3 {
+  margin-bottom: 5px;
+}
+.NewsHolder .typography .news-box figure,
+.NewsHolderPage .typography .news-box figure {
+  float: left;
+  margin: 5px 20px 10px 0;
+}
+.NewsHolder .typography .archive,
+.NewsHolderPage .typography .archive {
+  margin-top: 20px;
+}
+.NewsHolder .typography .archive a,
+.NewsHolderPage .typography .archive a {
+  border-width: 0;
+}
+.NewsItem figure {
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 22px;
+  margin-top: 7px;
+}
+/********** WIDGETS ************************************/
+/********** IE FIXES ******************************/
+/********** MEDIA QUERIES ******************************/
+/* This is not meant for responsiveness, use a separate file for that */
+@media only screen and (max-width: 767px) {
+  /* Open all sitemap tree nodes by default to prevent usability difficulty on mobile devices */
+}
