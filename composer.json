@@ -1,5 +1,6 @@
 {
 	"name": "hamaka/themes",
+	"type": "silverstripe-themes",
 	"description": "Custom SilverStripe Theme by Hamaka",
 	"homepage": "http://hamaka.nl",
 	"keywords": ["silverstripe", "themes"],
@@ -16,5 +17,8 @@
 			"name": "Hamaka",
 			"homepage": "http://hamaka.nl"
 		}
-	]
+	],
+	 "config": {
+        "vendor-dir": "/"
+    }
 }
