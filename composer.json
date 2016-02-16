@@ -1,5 +1,5 @@
 {
-	"name": "silverstripe-themes",
+	"name": "silverstripe/themes",
 	"type": "silverstripe-module",
 	"description": "Custom SilverStripe Theme by Hamaka",
 	"homepage": "http://hamaka.nl",
