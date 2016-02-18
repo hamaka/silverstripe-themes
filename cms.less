@@ -16,6 +16,7 @@
 @error: @primaryColor;
 
 @colorConstructive: #1F9433;
+@colorCancel: @primaryColor;
 @colorSecondaryDark: #004F5D;
 @colorButton: @grey3;
 @colorButtonHover: @grey2;
@@ -112,6 +113,10 @@
 	.cms-content-fields {
 		background: @white;
 	}
+	.better-buttons-frontend-links{
+		margin-top:0 !important;
+		float: left !important;
+	}
 	.ss-ui-button {
 		border: none;
 		background: @colorButton;
@@ -120,6 +125,7 @@
 		&:hover, &:focus {
 			background: @colorButtonHover;
 			outline: none;
+			text-decoration: none;
 			.NoShadow();
 			.NoRoundedCorners();
 		}
@@ -140,6 +146,21 @@
 			.btn-icon-drive-upload {
 				-webkit-filter: invert(0);
 				filter: invert(0);
+			}
+		}
+		&.gridfield-better-buttons-delete {
+			background: @colorCancel;
+			float: right;
+			color: @white;
+			&:hover {
+				background: lighten(@colorCancel, 5%);
+			}
+		}
+		&.widgetDelete {
+			background: @colorCancel;
+			color: @white;
+			&:hover {
+				background: lighten(@colorCancel, 5%);
 			}
 		}
 		.btn-icon-drive-upload {
@@ -226,6 +247,9 @@
 			.NoRoundedCorners();
 			.NoShadow();
 			background: @colorUploadFieldDragZone;
+			height: auto;
+			padding: 7px 0;
+			line-height: normal;
 		}
 	}
 
@@ -409,5 +433,7 @@ fieldset.field {
 	background: lighten(@colorGridTableHead, 35%);
 }
 
-
+a.ss-ui-action[href="admin/assets/doSync"] {
+	display: none;
+}
 
