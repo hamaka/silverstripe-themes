@@ -1,12 +1,20 @@
 //********** FRONTEND SECURITY PAGES ********************/
 
-.SecurityPage {
+body.SecurityPage {
+	font-family: Helvetica, Arial, sans-serif;
 	.Gradient(top, #eee 10%, #004F5D);
+	overflow: auto;
 	h1 {
 		font-size: 50px;
+		color: #fff;
+		font-family: Helvetica, Arial, sans-serif;
+		line-height: normal;
 	}
 	h2 {
 		font-size: 25px;
+		color: #fff;
+		font-family: Helvetica, Arial, sans-serif;
+		line-height: normal;
 	}
 }
 
@@ -16,7 +24,7 @@
 	text-transform: none;
 	line-height: normal;
 	font-weight: normal;
-	margin:0 0 10px;
+	margin: 0 0 10px;
 }
 
 .loginScreen {
@@ -25,15 +33,15 @@
 	padding: 20px 80px;
 	background: rgba(99, 101, 103, 0.4);
 	color: #fff;
-	width:575px;
+	width: 575px;
 }
 
-.contentWrapper{
+.contentWrapper {
 	padding: 0 20px;
 	margin: 40px 0 0;
 }
 
-#MemberLoginFormExt_LoginForm,
+#MemberLoginFormExt_LoginForm, #MemberLoginForm_LoginForm,
 #MemberLoginFormExt_LostPasswordForm {
 	margin: 20px auto 0;
 	background-color: transparent;
@@ -41,6 +49,7 @@
 	font-size: 2em;
 
 	div.field {
+			margin: 10px 0 0 !important;
 		label.left {
 			text-align: left;
 			display: none;
@@ -53,15 +62,23 @@
 			border: none;
 			background: #fff;
 			width: 100%;
+			font-size: 24px;
+			font-family: Helvetica, Arial, sans-serif;
+			line-height: normal;
+			.NoRoundedCorners();
 			&:focus {
 				outline: none;
 			}
 		}
 	}
 	div.checkbox {
-		margin-left: 0;
+		margin-left: 0 !important;
 		font-size: .5em;
 		color: #fff;
+		label.right{
+			color: #fff;
+			font-size: 12px;
+		}
 	}
 	#Remember {
 		margin-left: 0;
@@ -78,17 +95,21 @@
 	div.Actions {
 		float: none;
 		margin-left: 0;
+		line-height: normal;
 
 		input.action {
-			width: 100%;
-			padding: 5px 25px;
-			color: #fff;
+			width: 100% !important;
+			padding: 5px 25px !important;
+			color: #fff !important;
 			font-weight: bold;
-			background: #1F9433;
+			background: #1F9433 !important;
 			border: none;
+			font-family: Helvetica, Arial, sans-serif;
+			font-size: 24px;
+			line-height: normal;
 			.Transition(all, .3s, ease, 0s);
-			&:hover{
-				background: lighten(#1F9433, 5%);
+			&:hover {
+				background: lighten(#1F9433, 5%) !important;
 			}
 		}
 	}
@@ -109,16 +130,16 @@
 		}
 	}
 
-	img{
-		width:150px;
+	img {
+		width: 150px;
 	}
 }
 
-#ForgotPassword{
+#ForgotPassword {
 	text-align: right;
-	a{
+	a {
 		color: #fff;
-		font-size: .5em;
+		font-size: 12px;
 	}
 }
 
