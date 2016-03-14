@@ -753,6 +753,54 @@ table.notable tr td h3 {
 .debug-hostindicator span {
   display: block;
 }
+body.frontendEditorActive {
+  padding-top: 24px;
+}
+.frontendEditor {
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 100%;
+  background: #759FA7;
+  padding: 0 20px;
+  line-height: 30px;
+  font-family: arial;
+  font-size: 15px;
+}
+.frontendEditor .feBtn {
+  display: inline-block;
+  padding: 0 6px;
+  color: #fff;
+  -webkit-transition: 'all' '0.3' 'ease' 0;
+  -moz-transition: 'all' '0.3' 'ease' 0;
+  -o-transition: 'all' '0.3' 'ease' 0;
+  -ms-transition: 'all' '0.3' 'ease' 0;
+  transition: 'all' '0.3' 'ease' 0;
+}
+.frontendEditor .feBtn:not(:last-child) {
+  margin-right: 10px;
+}
+.frontendEditor .feBtn.noPadding {
+  padding: 0;
+}
+.frontendEditor a {
+  color: #fff;
+}
+.frontendEditor a:hover {
+  color: #fff;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.35);
+}
+.frontendEditor .feLeft,
+.frontendEditor .feRight {
+  display: inline-block;
+  width: 50%;
+}
+.frontendEditor .feRight {
+  text-align: right;
+}
 .typography h1,
 .typography h2,
 .typography h3,
