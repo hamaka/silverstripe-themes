@@ -40,7 +40,7 @@
 	$BugherdCode
 </head>
 
-<body class="{$ClassName} {$CopyContentFrom.ClassName}"><% if $CurrentMember.inGroup('Administrators') %><div class="debug on"><span class="px"> px</span></div><% end_if %>
+<body class="{$ClassName} {$CopyContentFrom.ClassName}" data-pageid="{$ID}"><% if $CurrentMember.inGroup('Administrators') %><div class="debug on"><span class="px"> px</span></div><% end_if %>
 
 	<!--[if lt IE 7]><p class="chromeframe">U gebruikt een <strong>verouderde</strong> browser. <a href="http://browsehappy.com/">Upgrade naar een nieuwere browser</a> of <a href="http://www.google.com/chromeframe/?redirect=true">activeer Google Chrome Frame</a> om deze website te bekijken in uw huidige browser.</p><![endif]-->
 

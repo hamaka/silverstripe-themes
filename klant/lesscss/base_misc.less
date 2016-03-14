@@ -67,3 +67,49 @@
 			display: block;
 		}
 	}
+
+	body.frontendEditorActive {
+	padding-top: 24px;
+}
+
+.frontendEditor {
+	position: fixed;
+	z-index: 2000;
+	top: 0;
+	left: 0;
+	height: 30px;
+	width: 100%;
+	background: #759FA7;
+	padding: 0 20px;
+	line-height: 30px;
+	font-family: arial;
+	font-size: 15px;
+	.feBtn {
+		display: inline-block;
+		padding: 0 6px;
+		color: #fff;
+		.Transition();
+		&:not(:last-child) {
+			margin-right: 10px;
+		}
+		&.noPadding{
+			padding:0;
+		}
+	}
+	a {
+		color: #fff;
+		&:hover {
+			color: #fff;
+			text-decoration: none;
+			background: rgba(255, 255, 255, 0.35);
+		}
+	}
+
+	.feLeft, .feRight {
+		display: inline-block;
+		width: 50%;
+	}
+	.feRight {
+		text-align: right;
+	}
+}
